@@ -72,7 +72,7 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EDCC016F09CC4FCEB3007311BFA009B3 }}
 
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2-release-zip-archival-fix
+        uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'test-gha-php-81'
