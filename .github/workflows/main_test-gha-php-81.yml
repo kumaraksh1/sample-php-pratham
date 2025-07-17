@@ -65,14 +65,14 @@ jobs:
           npm -v
       
       - name: Login to Azure
-        uses: azure/login@releases/v3.0.2
+        uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E8088D77A988426BAA6614423746FC6C }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2652CA095FFA49DABD3C0D051F0DDEBA }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EDCC016F09CC4FCEB3007311BFA009B3 }}
 
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@utility-fix-zip-method
+        uses: azure/webapps-deploy@v3.0.2
         id: deploy-to-webapp
         with:
           app-name: 'test-gha-php-81'
