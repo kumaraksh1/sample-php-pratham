@@ -8,5 +8,6 @@ class Greetings {
     $timer = new PHP_Timer();
     $timer->start();
     return "Hello World\n" . $timer->resourceUsage() . "\n";
+    // testing somethingf
   }
 }
