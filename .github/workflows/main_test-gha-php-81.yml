@@ -71,7 +71,7 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EDCC016F09CC4FCEB3007311BFA009B3 }}
 
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@releases/v2-users/kumaraksh/delete-release-folder-php
+        uses: azure/webapps-deploy@releases/v3-users/kumaraksh/delete-release-folder-php
         id: deploy-to-webapp
         with:
           app-name: 'test-gha-php-81'
