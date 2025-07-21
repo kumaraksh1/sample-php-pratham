@@ -72,7 +72,7 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EDCC016F09CC4FCEB3007311BFA009B3 }}
 
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@releases/v3-zipdelete-fix-in-repo
+        uses: azure/webapps-deploy@releases/v2-recurisive-file-check
         id: deploy-to-webapp
         with:
           app-name: 'test-gha-php-81'
