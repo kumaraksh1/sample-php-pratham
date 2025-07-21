@@ -62,5 +62,5 @@ jobs:
           app-name: 'test-gha-php-81'
           slot-name: 'Production'
           package: .
-          # publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF3CAF8C3F3F49BA9A89A8D7A1074D2D }}
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF3CAF8C3F3F49BA9A89A8D7A1074D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF3CAF8C3F3F49BA9A89A8D7A1074D2D }}
+          # publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF3CAF8C3F3F49BA9A89A8D7A1074D }}
