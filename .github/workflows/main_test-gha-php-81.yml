@@ -34,7 +34,7 @@ jobs:
         run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip . -x "*/.*" 
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -46,10 +46,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -58,24 +54,12 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-
-      - name: Check Node.js and npm version
-        run: |
-          node -v
-          npm -v
       
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E8088D77A988426BAA6614423746FC6C }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2652CA095FFA49DABD3C0D051F0DDEBA }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EDCC016F09CC4FCEB3007311BFA009B3 }}
-
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@releases/v2-recurisive-file-check
+        uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'test-gha-php-81'
           slot-name: 'Production'
           package: .
-          
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF3CAF8C3F3F49BA9A89A8D7A1074D2D }}
