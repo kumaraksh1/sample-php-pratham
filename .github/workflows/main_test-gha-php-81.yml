@@ -56,7 +56,7 @@ jobs:
         run: unzip release.zip
       
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@releases/v3-fix-isLinux-set
+        uses: azure/webapps-deploy@releases/v3-fix-all-linux-apps
         id: deploy-to-webapp
         with:
           app-name: 'test-gha-php-81'
