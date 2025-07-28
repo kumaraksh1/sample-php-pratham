@@ -54,6 +54,13 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E8088D77A988426BAA6614423746FC6C }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2652CA095FFA49DABD3C0D051F0DDEBA }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EDCC016F09CC4FCEB3007311BFA009B3 }}
       
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@releases/v2-delete-release-for-all
@@ -62,5 +69,3 @@ jobs:
           app-name: 'test-gha-php-81'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF3CAF8C3F3F49BA9A89A8D7A1074D2D }}
-          # publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF3CAF8C3F3F49BA9A89A8D7A1074D }}
