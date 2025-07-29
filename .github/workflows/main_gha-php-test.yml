@@ -61,7 +61,7 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_AED7CD93C3784BD6A7465B91BCEAF44A }}
 
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@releases/v2-fetch-linuxFxVersion
+        uses: azure/webapps-deploy@releases/v3-final-release-sidecar
         id: deploy-to-webapp
         with:
           app-name: 'gha-php-test'
